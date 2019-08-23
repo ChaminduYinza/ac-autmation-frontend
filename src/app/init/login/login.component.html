@@ -1,0 +1,55 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row main-div">
+      <div class="col-5 parentDiv mt-5">
+        <div class="card childDiv">
+          <div class="card-header card-header-success">
+            <h4 class="card-title text-center">Valve Systems</h4>
+          </div>
+          <div class="card-body mt-2">
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="form-values">
+              <div class="row field-div col-12">
+                <div class="col-8">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="email" placeholder="Email" name="userName"
+                      [formControl]="loginForm.controls['email']" required />
+                  </mat-form-field>
+                  <div class="error-msg" *ngIf="
+                      !loginForm.controls['email'].valid &&
+                      loginForm.controls['email'].touched
+                    ">
+                    <small>Valid email is <strong>required</strong></small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row field-div col-12">
+                <div class="col-8 ">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password" type="password" name="password"
+                      [formControl]="loginForm.controls['password']" required />
+                  </mat-form-field>
+                  <div class="error-msg" *ngIf="
+                      !loginForm.controls['password'].valid &&
+                      loginForm.controls['password'].touched
+                    ">
+                    <small>Valid password is <strong>required</strong></small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12 mt-3 mb-2">
+                <!-- login -->
+                <button mat-raised-button type="submit" class="btn btn-danger " [disabled]="loginForm.invalid">
+                  Login
+                </button>
+              </div>
+
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

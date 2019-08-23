@@ -1,0 +1,10 @@
+.card [class*="card-header-"] .card-icon,
+.card [class*="card-header-"] .card-text {
+  padding: 0px !important;
+}
+
+.mat-slider-horizontal {
+  height: 48px !important;
+  min-width: 173px !important;
+  top: -11px !important;
+}

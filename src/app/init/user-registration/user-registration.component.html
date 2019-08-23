@@ -1,0 +1,130 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row main-div">
+      <div class="col-6 parentDiv mt-5">
+        <div class="card childDiv">
+          <div class="card-header card-header-success">
+            <h4 class="card-title text-center">User Registration</h4>
+          </div>
+          <div class="card-body">
+            <form
+              [formGroup]="userRegistrationForm"
+              (ngSubmit)="registerUser()"
+              class="form-values"
+            >
+              <!-- <div class="row">
+                <div class="col-6">
+                  <div
+                    *ngIf="passwordMismatch"
+                    class="alert alert-danger"
+                    role="alert"
+                  >
+                    Passwords do not match.
+                  </div>
+                </div>
+              </div> -->
+
+              <div class="row field-div col-12">
+                <div class="col-8">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Email"
+                      name="userName"
+                      [formControl]="userRegistrationForm.controls['email']"
+                      required
+                    />
+                  </mat-form-field>
+                  <div
+                    class="error-msg"
+                    *ngIf="
+                      !userRegistrationForm.controls['email'].valid &&
+                      userRegistrationForm.controls['email'].touched
+                    "
+                  >
+                    <small>Valid email is <strong>required</strong></small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row field-div col-12">
+                <div class="col-8">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Password"
+                      type="password"
+                      name="password"
+                      [formControl]="userRegistrationForm.controls['password']"
+                      required
+                    />
+                  </mat-form-field>
+                  <div
+                    class="error-msg"
+                    *ngIf="
+                      !userRegistrationForm.controls['password'].valid &&
+                      userRegistrationForm.controls['password'].touched
+                    "
+                  >
+                    <small
+                      >Password needs to have at least
+                      <strong>8</strong> characters.</small
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="row field-div col-12">
+                <div class="col-8">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Confirm Password"
+                      type="password"
+                      name="confirmPassword"
+                      [formControl]="
+                        userRegistrationForm.controls['confirmPassword']
+                      "
+                      required
+                    />
+                  </mat-form-field>
+                  <div
+                    class="error-msg"
+                    *ngIf="
+                      userRegistrationForm.controls['confirmPassword'].value !==
+                        userRegistrationForm.controls['password'].value &&
+                      userRegistrationForm.controls['confirmPassword'].touched
+                    "
+                  >
+                    <small>Password does <strong>not match</strong></small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 mt-3 mb-2">
+                <!-- login -->
+                <button
+                  mat-raised-button
+                  class="btn btn-primary mr-3"
+                  [routerLink]="['/login']"
+                >
+                  Back to login
+                </button>
+
+                <!-- registerUser -->
+                <button
+                  mat-raised-button
+                  type="submit"
+                  class="btn btn-danger"
+                  [disabled]="userRegistrationForm.invalid"
+                >
+                  Create Account
+                </button>
+              </div>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

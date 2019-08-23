@@ -1,0 +1,57 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 row d-flex justify-content-end">
+        <button color="primary" mat-mini-fab matTooltip="Refresh data" (click)="ngOnInit()">
+          <mat-icon>cached</mat-icon>
+        </button>
+      </div>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-success">
+            <h4 class="card-title ">Air Conditioners</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary text-center">
+                  <th>AC</th>
+                  <th>Room Temperature</th>
+                  <th>Age</th>
+                  <th># Persons</th>
+                  <th>Comfortable Temperature</th>
+                  <th>Power</th>
+                  <th>Edit</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let ac of airConditioners" class="text-center">
+                    <td>{{ ac.did?ac.did:'-' }}</td>
+                    <td>{{ ac.roomTemperature?ac.roomTemperature:'-' }}</td>
+                    <td>{{ ac.age?ac.age:'-' }}</td>
+                    <td>{{ ac.noOfPersons?ac.noOfPersons:'-' }}</td>
+                    <td>{{ ac.comfortableTemperature?ac.comfortableTemperature:'-' }}</td>
+                    <td>
+                      <button matTooltip="{{ac.power?'Turn off':'Turn on'}}" type="button" [class]="
+                          ac.power
+                            ? 'btn btn-success bmd-btn-fab'
+                            : 'btn btn-danger bmd-btn-fab'
+                        "
+                        (click)="power(ac.did, !ac.power)">
+                        <i class="material-icons">power_settings_new</i>
+                      </button>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-outline-warning btn-sm" (click)="editMainValve(ac)">
+                        <i class="material-icons">edit</i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

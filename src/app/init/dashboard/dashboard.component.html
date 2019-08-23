@@ -1,0 +1,121 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <!-- <div class="main-wrapper card col-12"> -->
+    <div class="content-wrapper">
+      <!-- title -->
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card card-chart">
+            <div class="card-header card-header-green">
+              <div class="ct-chart" id="dailySalesChart"></div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">AC001</h4>
+              <p class="card-category">
+                <span class="text-success"><i class="fa fa-long-arrow-up"></i> Temperature </span> scale</p>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">access_time</i> updated 1 minutes ago
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card card-chart">
+            <div class="card-header card-header-green">
+              <div class="ct-chart" id="dailySalesChart1"></div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">AC002</h4>
+              <p class="card-category">
+                <span class="text-success"><i class="fa fa-long-arrow-up"></i> Temperature </span> scale</p>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">access_time</i> updated 4 minutes ago
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card card-chart">
+            <div class="card-header card-header-warning">
+              <div class="ct-chart" id="dailySalesChart2"></div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">AC003</h4>
+              <p class="card-category">
+                <span class="text-success"><i class="fa fa-long-arrow-up"></i> Temperature </span> scale</p>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">access_time</i> updated 10 minutes ago
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+      <div class="card-body">
+        <div class="row">
+
+          <div *ngFor="let l of lights" class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+
+              <div class="card-header card-header-icon" [ngClass]="l.power?'card-header-green':'card-header-danger'">
+                <div class="card-icon">
+                  <button class="animated infinite fadeIn" matTooltip="{{l.power?'Turn off':'Turn on'}}" type="button"
+                    [class]="
+                      l.power
+                        ? 'btn btn-success bmd-btn-fab'
+                        : 'btn btn-danger bmd-btn-fab'
+                    "
+                    (click)="power(l.did, !l.power)">
+                    <i class="material-icons">power_settings_new</i>
+                  </button>
+                </div>
+                <p class="card-category"></p>
+                <!-- <h3 class="card-title">{{l.did}} -->
+                <small></small>
+                <!-- </h3> -->
+              </div>
+              <div class="card-footer">
+                <!-- <div class="stats"> -->
+                <h5 class="card-title">{{l.did}} </h5>
+                <mat-slider [value]="mathRandom()" #intensity [matTooltip]="intensity" matTooltipPosition="above" color="primary"
+                  [max]="100" [min]="1" [step]="1" [thumbLabel]="true" [tickInterval]="tickInterval" (change)="changeChannelIntensity(p)">
+                </mat-slider>
+                <!-- <i class="material-icons text-danger">warning</i> -->
+                <!-- <a href="javascript:void(0)">Get More Space...</a> -->
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <!-- </div> -->
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row main-div">
+      <div class="col-8">
+        <div class="card">
+          <div class="card-header card-header-success">
+            <h4 class="card-title text-center">Edit Air Conditioner</h4>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="editACForm" (ngSubmit)="updateAC()" class="form-values ">
+              <div class="row field-div col-12  ">
+                <div class="col-8 spaceBetweenDivs">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="text" placeholder="Air Conditioner" formControlName="did" readonly />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row field-div col-12  ">
+                <div class="col-8 spaceBetweenDivs">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="text" placeholder="Room Temperature" formControlName="roomTemperature"
+                      readonly />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row field-div col-12  ">
+                <div class="col-8 spaceBetweenDivs">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="text" placeholder="No Of Persons" formControlName="noOfPersons" readonly />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row field-div col-12  ">
+                <div class="col-8 spaceBetweenDivs">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="number" min="1" max="110" step="1" placeholder="Age" formControlName="age" />
+                    <mat-error *ngIf="!editACForm.controls['age'].valid">
+                      Age must be in between <strong>1 - 110</strong>.
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row field-div col-12  ">
+                <div class="col-8 spaceBetweenDivs">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="number" min="17" max="30" ste="1" placeholder="Comfortable Temperature"
+                      formControlName="comfortableTemperature" />
+                    <mat-error *ngIf="!editACForm.controls['comfortableTemperature'].valid">
+                      Comfortable temperature must be in between <strong>17 - 30</strong>.
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row field-div col-12 ">
+                <div class="col-8 spaceBetweenDivs">
+                  <button mat-raised-button type="submit" [disabled]="editACForm.invalid" class="btn btn-danger pull-right">
+                    Update Valve
+                  </button>
+                  <button mat-raised-button class="btn btn-primary pull-right mr-3" [routerLink]="['/home/air-conditioners']">
+                    Back to home
+                  </button>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

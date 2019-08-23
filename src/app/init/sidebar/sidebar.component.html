@@ -1,0 +1,45 @@
+<!-- Creates a layout with a left-positioned sidenav and main content. -->
+<div class="wrapper">
+  <div class="sidebar" data-color="green" data-background-color="white" data-image="assets/img/mixed-lettuce-tower.jpg">
+    <div class="logo">
+      <div class="logo-img ml-3 mr-3">
+        <img class="img-background" src="assets/img/honest_greens_logo.png" />
+      </div>
+      <!-- <a routerLink="/dashboard" class="simple-text ml-4" style="font-size:0.8em">
+        Urban Agri Automation
+      </a> -->
+    </div>
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="./dashboard">
+            <i class="material-icons">home</i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="./air-conditioners">
+            <i class="material-icons">stay_current_landscape</i>
+            <p>Air Conditioners</p>
+          </a>
+        </li>
+
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="./lights">
+            <i class="material-icons">highlight</i>
+            <p>Lights</p>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+    <div class="sidebar-background" style="background-image: url(../../assets/img/mixed-lettuce-tower.jpg)"></div>
+  </div>
+
+  <div class="main-panel" id="parentDiv">
+    <app-header></app-header>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+/* .main-content {
+  margin-top: 50px !important;
+  padding-bottom: 0 !important;
+  padding-top: 5px !important;
+  overflow-y: hidden;
+  background-color: transparent !important;
+}
+
+.main-wrapper {
+  height: 89vh;
+  margin-top: 0px !important;
+  display: flex;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.content-wrapper {
+  height: 98%;
+  margin: 10px !important;
+  background-color: transparent !important;
+}
+
+.inner-container {
+  height: 20%;
+}
+
+.inner-container-rack {
+  height: 50%;
+}
+
+.body-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  overflow: auto;
+  flex-direction: row;
+}
+
+.obj {
+  height: 80%;
+  min-width: 200px;
+  margin: 0 5px 0 5px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.obj-rack {
+  height: 96%;
+  min-width: 200px;
+  margin: 0 5px 0 5px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+}
+
+.obj-header {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.obj-header-rack {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.obj-title-text {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.power-circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 14px;
+  margin-right: 12px;
+}
+
+.power-text {
+  font-size: 0.85em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.obj-body {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 0.5px solid white;
+}
+
+.obj-body-rack {
+  width: 100%;
+  height: 9%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 0.5px solid white;
+}
+
+.show-image {
+  background-color: #0000ff;
+  color: white;
+  animation: blinker 2.5s linear infinite;
+  border-radius: 10px;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.3;
+  }
+} */
+
+.mat-slider-horizontal {
+  height: 48px !important;
+  min-width: 173px !important;
+  top: -11px !important;
+}

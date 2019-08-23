@@ -1,0 +1,17 @@
+.sidebar .sidebar-background:after {
+  opacity: 0.92 !important;
+}
+
+.sidebar .sidebar-wrapper {
+  top: 134px !important;
+}
+
+.sidebar .logo-img img {
+  width: 216px !important;
+  top: 40px !important;
+  position: fixed !important;
+}
+
+.sidebar[data-color="green"] li.active > a {
+  background: linear-gradient(60deg, #0c2f5a, #346bb0);
+}

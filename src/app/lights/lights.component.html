@@ -1,0 +1,57 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 row d-flex justify-content-end">
+        <button color="primary" mat-mini-fab matTooltip="Refresh data" (click)="ngOnInit()">
+          <mat-icon>cached</mat-icon>
+        </button>
+      </div>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-success">
+            <h4 class="card-title ">Lights</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+
+              <div *ngFor="let l of lights" class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+
+                  <div class="card-header card-header-icon" [ngClass]="l.power?'card-header-green':'card-header-danger'">
+                    <div class="card-icon">
+                      <button class="animated infinite fadeIn" matTooltip="{{l.power?'Turn off':'Turn on'}}" type="button"
+                        [class]="
+                        l.power
+                          ? 'btn btn-success bmd-btn-fab'
+                          : 'btn btn-danger bmd-btn-fab'
+                      "
+                        (click)="power(l.did, !l.power)">
+                        <i class="material-icons">power_settings_new</i>
+                      </button>
+                    </div>
+                    <p class="card-category"></p>
+                    <!-- <h3 class="card-title">{{l.did}} -->
+                    <small></small>
+                    <!-- </h3> -->
+                  </div>
+                  <div class="card-footer">
+                    <!-- <div class="stats"> -->
+                      <h5 class="card-title">{{l.did}} </h5>
+                      <mat-slider [value]="mathRandom()" #intensity [matTooltip]="intensity" matTooltipPosition="above" color="primary" [max]="100"
+                        [min]="1" [step]="1" [thumbLabel]="true" [tickInterval]="tickInterval" (change)="changeChannelIntensity(p)">
+                      </mat-slider>
+                      <!-- <i class="material-icons text-danger">warning</i> -->
+                      <!-- <a href="javascript:void(0)">Get More Space...</a> -->
+                    <!-- </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
