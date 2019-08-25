@@ -13,7 +13,7 @@ import { EditLightComponent } from './lights/edit-light/edit-light.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/home/dashboard',
     pathMatch: 'full'
   },
   {
