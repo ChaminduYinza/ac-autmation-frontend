@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BlockUIModule } from 'ng-block-ui';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { ToastrModule } from 'ngx-toastr';
-
+import { NgVirtualKeyboardModule }  from '@protacon/ng-virtual-keyboard';
 // Angular material modules
 import {
   MatProgressBarModule,
@@ -79,6 +79,7 @@ import { EditLightComponent } from './lights/edit-light/edit-light.component'
     MatChipsModule,
     HttpModule,
     MatTooltipModule,
+    NgVirtualKeyboardModule,
     BlockUIModule.forRoot(),
     ToastrModule.forRoot()
   ],

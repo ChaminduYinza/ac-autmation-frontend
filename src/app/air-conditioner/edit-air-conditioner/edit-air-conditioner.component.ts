@@ -23,8 +23,8 @@ export class EditAirConditionerComponent implements OnInit {
       did: [null, Validators.required],
       roomTemperature: [null, Validators],
       power: [null, Validators],
-      age: [null, [Validators, Validators.max(110), Validators.min(1)]],
-      comfortableTemperature: [null, [Validators, Validators.max(30), Validators.min(17)]],
+      age: [null, [Validators, Validators.max(110), Validators.min(1),Validators.pattern(/^\d+$/)]],
+      comfortableTemperature: [null, [Validators, Validators.max(29), Validators.min(14),Validators.pattern(/^\d+$/)]],
       noOfPersons: [null, Validators],
     });
   }
@@ -47,7 +47,7 @@ export class EditAirConditionerComponent implements OnInit {
           });
 
         }, valveByIdErr => {
-          Swal('Oops!', valveByIdErr.data, 'error');
+          Swal('Oops!', valveByIdErr.msg, 'error');
         });
     });
   }
@@ -78,7 +78,7 @@ export class EditAirConditionerComponent implements OnInit {
             );
             this._Router.navigateByUrl('home/air-conditioners');
           }, err => {
-            Swal('Oops!', err.data, 'error');
+            Swal('Oops!', err.msg, 'error');
           })
       }
     })

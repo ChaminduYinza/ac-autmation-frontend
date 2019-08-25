@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
 
     // create socket
-    this.socket = io(environment.socketUrl);
+    // this.socket = io(environment.socketUrl);
   }
 
   ngOnInit() {

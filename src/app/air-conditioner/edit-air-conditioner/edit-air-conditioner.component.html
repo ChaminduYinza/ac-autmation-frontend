@@ -33,20 +33,28 @@
               <div class="row field-div col-12  ">
                 <div class="col-8 spaceBetweenDivs">
                   <mat-form-field class="example-full-width">
-                    <input matInput type="number" min="1" max="110" step="1" placeholder="Age" formControlName="age" />
+                    <input [autocomplete]="off" matInput type="text" placeholder="Age"
+                      formControlName="age" 
+                      ng-virtual-keyboard
+                      ng-virtual-keyboard-layout="numeric" />
                     <mat-error *ngIf="!editACForm.controls['age'].valid">
                       Age must be in between <strong>1 - 110</strong>.
                     </mat-error>
                   </mat-form-field>
+                
                 </div>
               </div>
+              <!-- <input [matKeyboard]="'qwerty'" /> -->
               <div class="row field-div col-12  ">
                 <div class="col-8 spaceBetweenDivs">
                   <mat-form-field class="example-full-width">
-                    <input matInput type="number" min="17" max="30" ste="1" placeholder="Comfortable Temperature"
+                    <input matInput 
+                    type="text" min="17" max="30" ste="1" placeholder="Comfortable Temperature"
+                    ng-virtual-keyboard
+                      ng-virtual-keyboard-layout="numeric"
                       formControlName="comfortableTemperature" />
                     <mat-error *ngIf="!editACForm.controls['comfortableTemperature'].valid">
-                      Comfortable temperature must be in between <strong>17 - 30</strong>.
+                      Comfortable temperature must be in between <strong>14 - 29</strong>.
                     </mat-error>
                   </mat-form-field>
                 </div>
