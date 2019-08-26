@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LightsService } from '../services/lights.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { interval } from 'rxjs'
+import { Subscription } from 'rxjs'
 
 
 @Component({
@@ -9,17 +11,28 @@ import { Router } from '@angular/router';
   templateUrl: './lights.component.html',
   styleUrls: ['./lights.component.css']
 })
-export class LightsComponent implements OnInit {
+export class LightsComponent implements OnInit, OnDestroy {
   lights: any;
+  intervalSub: Subscription;
+
   constructor(
     private _LightsService: LightsService,
     private _Router: Router
   ) { }
 
   ngOnInit() {
-    this._LightsService.getLights().subscribe(data => {
-      this.lights = data.data
-    });
+    this.intervalSub = interval(1000)
+      .subscribe((val) => {
+        this._LightsService.getLights().subscribe(data => {
+          this.lights = data.data
+        });
+      });
+  }
+
+  ngOnDestroy() {
+    if (this.intervalSub !== undefined && this.intervalSub !== null) {
+      this.intervalSub.unsubscribe();
+    }
   }
 
   /**

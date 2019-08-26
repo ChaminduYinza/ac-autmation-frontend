@@ -7,5 +7,5 @@ export const environment = {
   channelValues: [10, 12],
   tableRefreshTimeInMilliseconds: 5000,
   socketUrl: 'http://122.255.5.131:3000',
-  api_url: 'http://122.255.5.131:3000/'
+  api_url: 'http://192.168.1.28:3000/'
 };

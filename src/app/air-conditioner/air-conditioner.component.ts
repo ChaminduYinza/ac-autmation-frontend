@@ -1,24 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AirConditionerService } from '../services/air-conditioner.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { interval } from 'rxjs'
+import { Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-air-conditioner',
   templateUrl: './air-conditioner.component.html',
   styleUrls: ['./air-conditioner.component.css']
 })
-export class AirConditionerComponent implements OnInit {
+export class AirConditionerComponent implements OnInit, OnDestroy {
   airConditioners: any;
+  intervalSub: Subscription;
   constructor(
     private _AirConditionerService: AirConditionerService,
     private _Router: Router
   ) { }
 
   ngOnInit() {
-    this._AirConditionerService.getAirConditioners().subscribe(data => {
-      this.airConditioners = data.data
-    });
+    this.intervalSub = interval(1000)
+      .subscribe((val) => {
+        this._AirConditionerService.getAirConditioners().subscribe(data => {
+          this.airConditioners = data.data
+        });
+      });
+  }
+
+  ngOnDestroy() {
+    if (this.intervalSub !== undefined && this.intervalSub !== null) {
+      this.intervalSub.unsubscribe();
+    }
   }
 
   /**
@@ -67,6 +79,10 @@ export class AirConditionerComponent implements OnInit {
     this._Router.navigate(['home/edit-air-conditioner'], {
       queryParams: { mainValveId: ac.did }
     });
+  }
+
+  convertToArray(count) {
+    return Array(count).fill(0).map((x, i) => i);
   }
 
 }

@@ -26,9 +26,13 @@
                 <tbody>
                   <tr *ngFor="let ac of airConditioners" class="text-center">
                     <td>{{ ac.did?ac.did:'-' }}</td>
-                    <td>{{ ac.roomTemperature?ac.roomTemperature:'-' }}</td>
+                    <td class="bold-black">{{ ac.roomTemperature?ac.roomTemperature:'-' }}</td>
                     <td>{{ ac.age?ac.age:'-' }}</td>
-                    <td>{{ ac.noOfPersons?ac.noOfPersons:'-' }}</td>
+                    <td [ngClass]="ac.noOfPersons && ac.power?'animated infinite fadeIn bold-red':''">
+                      {{ ac.noOfPersons && ac.power?'':'-' }}
+                      <i *ngFor="let a of convertToArray(ac.noOfPersons && ac.power?ac.noOfPersons:0)" class="material-icons">person</i>
+
+                    </td>
                     <td>{{ ac.comfortableTemperature?ac.comfortableTemperature:'-' }}</td>
                     <td>
                       <button matTooltip="{{ac.power?'Turn off':'Turn on'}}" type="button" [class]="

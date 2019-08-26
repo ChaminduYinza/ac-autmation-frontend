@@ -1,0 +1,8 @@
+.bold-red {
+  color: red !important;
+  font-weight: bold !important;
+}
+
+.bold-red {
+  font-weight: bold !important;
+}
