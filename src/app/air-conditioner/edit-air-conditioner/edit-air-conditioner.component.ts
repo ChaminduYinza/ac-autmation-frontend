@@ -69,6 +69,7 @@ export class EditAirConditionerComponent implements OnInit {
         !this.editACForm.value.comfortableTemperature
           ? this.editACForm.value.comfortableTemperature = 0
           : this.editACForm.value.comfortableTemperature;
+          delete this.editACForm.value.roomTemperature
         this._AirConditionerService.updateAirConditioner(this.editACForm.value)
           .subscribe(data => {
             Swal(
